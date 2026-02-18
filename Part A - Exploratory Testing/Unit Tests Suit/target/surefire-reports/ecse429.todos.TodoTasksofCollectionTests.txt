@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ecse429.todos.TodoTasksofCollectionTests
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.055 s -- in ecse429.todos.TodoTasksofCollectionTests

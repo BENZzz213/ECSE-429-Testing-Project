@@ -1,0 +1,254 @@
+{
+  "info": {
+    "name": "Todo API - Exploratory (Full)",
+    "_postman_id": "todo-api-exploratory-full",
+    "description": "ECSE 429 Part A - Full Todos collection including relationships (categories/tasksof) and method-not-allowed checks.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Todos (/todos)",
+      "item": [
+        {
+          "name": "GET /todos (200)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos" }
+        },
+        {
+          "name": "POST /todos Create (201/400) + save todoId",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Exploratory Task\",\n  \"doneStatus\": false,\n  \"description\": \"Testing CRUD\"\n}"
+            },
+            "url": "{{baseUrl}}/todos"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "  try {",
+                  "    const json = pm.response.json();",
+                  "    if (json && json.id) pm.environment.set('todoId', json.id);",
+                  "  } catch (e) {}",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PUT /todos (405)",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/todos" }
+        },
+        {
+          "name": "DELETE /todos (405)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos" }
+        },
+        {
+          "name": "PATCH /todos (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos" }
+        },
+        {
+          "name": "OPTIONS /todos (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos" }
+        },
+        {
+          "name": "HEAD /todos (200)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos" }
+        }
+      ]
+    },
+    {
+      "name": "Todo By ID (/todos/:id)",
+      "item": [
+        {
+          "name": "GET /todos/:id (200/404)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}" }
+        },
+        {
+          "name": "PUT /todos/:id Replace (200/404)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Task (PUT)\",\n  \"doneStatus\": true,\n  \"description\": \"Updated via PUT\"\n}"
+            },
+            "url": "{{baseUrl}}/todos/{{todoId}}"
+          }
+        },
+        {
+          "name": "POST /todos/:id Amend (200/404)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"description\": \"Amended via POST\"\n}" },
+            "url": "{{baseUrl}}/todos/{{todoId}}"
+          }
+        },
+        {
+          "name": "DELETE /todos/:id (200/404)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}" }
+        },
+        {
+          "name": "PATCH /todos/:id (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos/{{todoId}}" }
+        },
+        {
+          "name": "OPTIONS /todos/:id (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos/{{todoId}}" }
+        },
+        {
+          "name": "HEAD /todos/:id (200/404)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos/{{todoId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Todo ⇄ Categories Relationship (/todos/:id/categories)",
+      "item": [
+        {
+          "name": "GET /todos/:id/categories (200)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        },
+        {
+          "name": "POST /todos/:id/categories Link category (201/400)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"{{catId}}\"\n}" },
+            "url": "{{baseUrl}}/todos/{{todoId}}/categories"
+          }
+        },
+        {
+          "name": "PUT /todos/:id/categories (405)",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        },
+        {
+          "name": "DELETE /todos/:id/categories (405)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        },
+        {
+          "name": "PATCH /todos/:id/categories (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        },
+        {
+          "name": "OPTIONS /todos/:id/categories (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        },
+        {
+          "name": "HEAD /todos/:id/categories (200)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos/{{todoId}}/categories" }
+        }
+      ]
+    },
+    {
+      "name": "Todo ⇄ Categories Relationship (/todos/:id/categories/:id)",
+      "item": [
+        {
+          "name": "GET /todos/:id/categories/:id (405)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "PUT /todos/:id/categories/:id (405)",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "POST /todos/:id/categories/:id (405)",
+          "request": { "method": "POST", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "DELETE /todos/:id/categories/:id Unlink (200/400/404)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "OPTIONS /todos/:id/categories/:id (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "HEAD /todos/:id/categories/:id (405)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        },
+        {
+          "name": "PATCH /todos/:id/categories/:id (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos/{{todoId}}/categories/{{catId}}" }
+        }
+      ]
+    },
+    {
+      "name": "Todo ⇄ Project Relationship (/todos/:id/tasksof)",
+      "item": [
+        {
+          "name": "GET /todos/:id/tasksof (200)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        },
+        {
+          "name": "POST /todos/:id/tasksof Link project (201/400)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"id\": \"{{projId}}\"\n}" },
+            "url": "{{baseUrl}}/todos/{{todoId}}/tasksof"
+          }
+        },
+        {
+          "name": "PUT /todos/:id/tasksof (405)",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        },
+        {
+          "name": "DELETE /todos/:id/tasksof (405)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        },
+        {
+          "name": "PATCH /todos/:id/tasksof (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        },
+        {
+          "name": "OPTIONS /todos/:id/tasksof (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        },
+        {
+          "name": "HEAD /todos/:id/tasksof (200)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof" }
+        }
+      ]
+    },
+    {
+      "name": "Todo ⇄ Project Relationship (/todos/:id/tasksof/:id)",
+      "item": [
+        {
+          "name": "GET /todos/:id/tasksof/:id (405)",
+          "request": { "method": "GET", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "PUT /todos/:id/tasksof/:id (405)",
+          "request": { "method": "PUT", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "POST /todos/:id/tasksof/:id (405)",
+          "request": { "method": "POST", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "DELETE /todos/:id/tasksof/:id Unlink (200/400/404)",
+          "request": { "method": "DELETE", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "OPTIONS /todos/:id/tasksof/:id (200)",
+          "request": { "method": "OPTIONS", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "HEAD /todos/:id/tasksof/:id (405)",
+          "request": { "method": "HEAD", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        },
+        {
+          "name": "PATCH /todos/:id/tasksof/:id (405)",
+          "request": { "method": "PATCH", "url": "{{baseUrl}}/todos/{{todoId}}/tasksof/{{projId}}" }
+        }
+      ]
+    }
+  ]
+}

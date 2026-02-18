@@ -1,0 +1,230 @@
+REST API TODO MANAGER - DEMO SCRIPT RUN
+============================================================
+
+SESSION: session-1
+------------------------------------------------------------
+
+--- session-1/01_get_all_todos.py ---
+Return code: 0
+
+STDOUT:
+Capability 1: Retrieve all todos
+Status: 200
+Body: {'todos': [{'id': '26', 'title': 'Session2 - Delete category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '37', 'title': 'Mandatory fields demo', 'doneStatus': 'false', 'description': ''}, {'id': '29', 'title': 'Session2 - Create category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '2'}, {'id': '1'}]}, {'id': '10', 'title': 'Get-by-id demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '49', 'title': 'Updated Task (PUT)', 'doneStatus': 'false', 'description': ''}, {'id': '13', 'title': 'Updated Task (PUT)', 'doneStatus': 'true', 'description': 'Updated via PUT'}, {'id': '47', 'title': '3.0', 'doneStatus': 'false', 'description': '2.0'}, {'id': '25', 'title': 'Session2 - Create category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '2'}, {'id': '1'}]}, {'id': '35', 'title': 'Session2 - tasksof endpoint mismatch demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'tasksof': [{'id': '1'}]}, {'id': '42', 'title': 'Session2 - Get categories demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '1'}]}, {'id': '30', 'title': 'Session2 - Delete category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '33', 'title': 'Session2 - Create category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '2'}, {'id': '1'}]}, {'id': '18', 'title': '500.0', 'doneStatus': 'false', 'description': 'Amended via POST'}, {'id': '50', 'title': 'POST amend base', 'doneStatus': 'false', 'description': 'false'}, {'id': '7', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': 'Testing CRUD', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}, {'id': '34', 'title': 'Session2 - Delete category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '14', 'title': 'POST amend demo', 'doneStatus': 'false', 'description': 'Amended via POST'}, {'id': '40', 'title': 'POST amend demo', 'doneStatus': 'false', 'description': 'Amended via POST'}, {'id': '28', 'title': 'Session2 - Get categories demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '1'}]}, {'id': '44', 'title': 'Session2 - Delete category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '24', 'title': 'Session2 - Get categories demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '1'}]}, {'id': '1', 'title': 'scan paperwork', 'doneStatus': 'false', 'description': ''}, {'id': '31', 'title': 'Session2 - tasksof endpoint mismatch demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '32', 'title': 'Session2 - Get categories demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '1'}]}, {'id': '36', 'title': 'Get-by-id demo', 'doneStatus': 'false', 'description': 'Created by demo script'}, {'id': '38', 'title': 'Relationships demo', 'doneStatus': 'false', 'description': 'Todo created with relationships', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}, {'id': '4', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': 'Testing CRUD'}, {'id': '27', 'title': 'Session2 - tasksof endpoint mismatch demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'tasksof': [{'id': '1'}]}, {'id': '23', 'title': 'cook dinner', 'doneStatus': 'false', 'description': 'pizza with salami'}, {'id': '11', 'title': 'Mandatory fields demo', 'doneStatus': 'false', 'description': ''}, {'id': '9', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': 'Testing CRUD', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}, {'id': '2', 'title': 'file paperwork', 'doneStatus': 'false', 'description': '', 'tasksof': [{'id': '1'}]}, {'id': '12', 'title': 'Relationships demo', 'doneStatus': 'false', 'description': 'Todo created with relationships', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}, {'id': '39', 'title': 'Updated Task (PUT)', 'doneStatus': 'true', 'description': 'Updated via PUT'}, {'id': '45', 'title': 'Session2 - tasksof endpoint mismatch demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'tasksof': [{'id': '1'}]}, {'id': '43', 'title': 'Session2 - Create category relationship demo', 'doneStatus': 'false', 'description': 'Created by demo script', 'categories': [{'id': '2'}, {'id': '1'}]}, {'id': '3', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': 'Testing CRUD'}, {'id': '17', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': '2.0', 'categories': [{'id': '1'}]}, {'id': '6', 'title': 'Exploratory Task', 'doneStatus': 'false', 'description': 'Testing CRUD', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}]}
+
+
+============================================================
+
+--- session-1/02_get_todo_by_id.py ---
+Return code: 0
+
+STDOUT:
+Capability 2: Retrieve specific todo by ID
+Requested id: 51
+Body: {'todos': [{'id': '51', 'title': 'Get-by-id demo', 'doneStatus': 'false', 'description': 'Created by demo script'}]}
+
+
+============================================================
+
+--- session-1/03_create_todo_mandatory.py ---
+Return code: 0
+
+STDOUT:
+Capability 3: Create todo with mandatory fields
+Created: {'id': '52', 'title': 'Mandatory fields demo', 'doneStatus': 'false', 'description': ''}
+
+
+============================================================
+
+--- session-1/04_create_todo_with_relationships.py ---
+Return code: 0
+
+STDOUT:
+Capability 4: Create todo including relationships
+Created: {'id': '53', 'title': 'Relationships demo', 'doneStatus': 'false', 'description': 'Todo created with relationships', 'categories': [{'id': '1'}], 'tasksof': [{'id': '1'}]}
+
+
+============================================================
+
+--- session-1/05_put_replace_todo.py ---
+Return code: 0
+
+STDOUT:
+Capability 5: Replace todo using PUT
+Updated id: 54
+Response: {'id': '54', 'title': 'Updated Task (PUT)', 'doneStatus': 'true', 'description': 'Updated via PUT'}
+
+
+============================================================
+
+--- session-1/06_post_amend_todo.py ---
+Return code: 0
+
+STDOUT:
+Capability 6: Amend todo using POST /:id
+Amended id: 55
+Response: {'id': '55', 'title': 'POST amend demo', 'doneStatus': 'false', 'description': 'Amended via POST'}
+
+
+============================================================
+
+--- session-1/07_delete_todo_by_id.py ---
+Return code: 0
+
+STDOUT:
+Capability 7: Delete todo with specific id
+Deleted id: 56
+Verified GET after delete returns 404
+
+
+============================================================
+
+--- session-1/08_options_todos.py ---
+Return code: 0
+
+STDOUT:
+Capability 8: Support HTTP OPTIONS
+Status: 200
+Allow header: OPTIONS, GET, HEAD, POST
+
+
+============================================================
+
+--- session-1/09_head_todos.py ---
+Return code: 0
+
+STDOUT:
+Capability 9: Support HTTP HEAD
+Status: 200
+Content-Type: application/json
+Body length: 0
+
+
+============================================================
+
+SESSION: session-2
+------------------------------------------------------------
+
+--- session-2/01_get_categories_for_todo.py ---
+Return code: 0
+
+STDOUT:
+Session 2 - Capability: Retrieve categories related to a todo
+Todo id: 57
+Response: {'categories': [{'id': '1', 'title': 'Office', 'description': ''}]}
+PASS: Category 1 is linked and visible via GET /todos/:id/categories
+
+
+============================================================
+
+--- session-2/02_create_category_relationship.py ---
+Return code: 0
+
+STDOUT:
+Session 2 - Capability: Create todo-category relationships (multiple, non-overwriting)
+Todo id: 58
+Related categories: {'categories': [{'id': '2', 'title': 'Home', 'description': ''}, {'id': '1', 'title': 'Office', 'description': ''}]}
+PASS: Multiple category relationships exist without overwriting.
+PASS: Relationship creation accepted extra fields (loose validation).
+
+
+============================================================
+
+--- session-2/03_delete_category_relationship.py ---
+Return code: 0
+
+STDOUT:
+Session 2 - Capability: Delete todo-category relationship
+Todo id: 59
+PASS: Deleted relationship /categories/1 and verified it is removed.
+PASS: Deleting non-linked relationship returned 404 as expected.
+Error body: {'errorMessages': ['Could not find any instances with todos/59/categories/2']}
+
+
+============================================================
+
+--- session-2/04_taskof_endpoint_test.py ---
+Return code: 0
+
+STDOUT:
+Session 2 - Capability: Todo <-> Project relationship (tasksof) + spec mismatch checks
+Todo id: 60
+PASS: Linked todo to project via POST /todos/:id/tasksof
+Related projects: {'projects': [{'id': '1', 'title': 'Office Work', 'completed': 'false', 'active': 'false', 'description': '', 'tasks': [{'id': '2'}, {'id': '12'}, {'id': '27'}, {'id': '45'}, {'id': '6'}, {'id': '53'}, {'id': '60'}, {'id': '9'}, {'id': '7'}, {'id': '35'}, {'id': '38'}]}]}
+Observed GET /todos/:id/tasksof/:id status = 404 (expected 405 per docs, observed often 404)
+Observed POST /todos/:id/tasksof/:id status = 404 (expected 405 per docs, observed often 404)
+PASS: tasksof relationship works via collection endpoint; sub-resource endpoint shows 404/405 mismatch as documented in session notes.
+
+
+============================================================
+
+SESSION: session-3
+------------------------------------------------------------
+
+--- session-3/01_post_create_validation.py ---
+Return code: 0
+
+STDOUT:
+Session 3 - Script 01: POST /todos validation (no ID injection, mandatory title)
+PASS: Creating a todo with 'id' is rejected (400).
+PASS: Missing title is rejected (400).
+
+
+============================================================
+
+--- session-3/02_post_type_coercion_and_doneStatus.py ---
+Return code: 0
+
+STDOUT:
+Session 3 - Script 02: POST type coercion + doneStatus type validation
+PASS: title/description integers are coerced to string values.
+Created todo: {'id': '62', 'title': '3.0', 'doneStatus': 'false', 'description': '2.0'}
+PASS: doneStatus integer is rejected with 400.
+
+
+============================================================
+
+--- session-3/03_put_replacement_edge_cases.py ---
+Return code: 0
+
+STDOUT:
+Session 3 - Script 03: PUT replacement defaults + empty title validation
+Base todo: {'id': '64', 'title': 'PUT replace base', 'doneStatus': 'true', 'description': 'Before PUT'}
+PASS: PUT with partial body resets unspecified fields to defaults.
+PUT response: {'id': '64', 'title': 'Updated Task (PUT)', 'doneStatus': 'false', 'description': ''}
+PASS: Empty title is rejected on PUT (400).
+
+
+============================================================
+
+--- session-3/04_post_amend_id_ignored_and_type_coercion.py ---
+Return code: 0
+
+STDOUT:
+Session 3 - Script 04: POST amend bug (id ignored) + coercion
+Base todo: {'id': '65', 'title': 'POST amend base', 'doneStatus': 'false', 'description': 'Before amend'}
+PASS (bug demonstrated): POST /todos/:id accepts body with id=100 and returns 200, while id remains unchanged.
+POST response: {'id': '65', 'title': 'POST amend base', 'doneStatus': 'false', 'description': 'Before amend'}
+PASS: POST coerces boolean description to string 'false'.
+POST response: {'id': '65', 'title': 'POST amend base', 'doneStatus': 'false', 'description': 'false'}
+
+
+============================================================
+
+--- session-3/05_relationship_nonexistent_parent_bugs.py ---
+Return code: 0
+
+STDOUT:
+Session 3 - Script 05: Relationship bugs when parent todo does not exist (id=1000)
+PASS (bug demonstrated): GET /todos/1000/categories returns duplicated categories instead of 404.
+Categories count: 22
+PASS (bug demonstrated): GET /todos/1000/tasksof returns duplicated projects instead of 404.
+Projects count: 11
+PASS (bug demonstrated): DELETE /todos/1000/categories/1 returns internal exception message (parent null).
+Error body: {'errorMessages': ['Cannot invoke "uk.co.compendiumdev.thingifier.core.domain.instances.ThingInstance.getRelationships()" because "parent" is null']}
+PASS (bug demonstrated): DELETE /todos/1000/tasksof/1 returns internal exception message (parent null).
+
+
+============================================================
+
+All scripts executed.
