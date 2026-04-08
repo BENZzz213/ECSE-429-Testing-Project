@@ -1,0 +1,2 @@
+startingObjectCount,operation,measuredIterations,meanLatencyMs,medianLatencyMs,p95LatencyMs
+2000,update,1000,2.209,1.968,4.413
